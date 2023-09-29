@@ -22,10 +22,10 @@ async function sendEmail(to, subject, message) {
     });
 
     const mailOptions = {
-      from: "kurupuxx@gmail.com",
+      from: process.env.EMAIL,
       to: to,
       subject: subject,
-      text: message,
+      html: message,
     };
 
     const info = await transporter.sendMail(mailOptions);
