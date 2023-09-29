@@ -1,8 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const port = 3001;
+const port = process.env.PORT;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -15,8 +16,8 @@ async function sendEmail(to, subject, message) {
     const transporter = nodemailer.createTransport({
       service: "Gmail",
       auth: {
-        user: "kurupuxx@gmail.com",
-        pass: "negc ocjv omsh ptip",
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
       },
     });
 
